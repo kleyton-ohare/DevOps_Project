@@ -8,18 +8,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [name, setName] = useState("");
   const [hello, setHello] = useState(["Be brave and tap the button below"]);
-  const [showSecond, setShowSecond] = useState(false);
+  const [showSecondScreen, setShowSecondScreen] = useState(false);
+  const url = process.env.REACT_APP_API_HOST;
 
-  const handleSubmit = event => {
-    setShowSecond(!showSecond)
+  const handleSubmit = async event => {
+    // switches to second screen
+    setShowSecondScreen(!showSecondScreen);
+
+    // calls the backend
+    await fetch(`${url}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name
+      })
+    });
     event.preventDefault();
   }
 
   const handleChange = event => {
+    // changes the 'name' state
     setName(event.target.value);
   }
 
   const increment = () => {
+    // callback is used to keep track of previous data and adds one more
     setHello(h => [...h, `Hello ${name}`]);
   }
 
@@ -53,7 +68,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {showSecond ? secondScreen() : firstScreen()}
+        {showSecondScreen ? secondScreen() : firstScreen()}
       </header>
     </div>
   );
