@@ -10,6 +10,7 @@ function App() {
   const [name, setName] = useState("");
   const [hello, setHello] = useState(["Be brave and tap the button below"]);
   const [showSecondScreen, setShowSecondScreen] = useState(false);
+
   const url = process.env.REACT_APP_API_HOST;
 
   const handleSubmit = async event => {
