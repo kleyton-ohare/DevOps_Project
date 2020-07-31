@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Table from 'react-bootstrap/Table';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -70,6 +71,26 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {showSecondScreen ? secondScreen() : firstScreen()}
       </header>
+      <body>
+        <div className="Body">
+          <Table striped bordered hover>
+            <thead>
+              <th>GitHub repositories:</th>
+              <th>DockerHub repositories:</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><p><a href='https://github.com/kleyton-ohare/DevOps_Project' target='blank'>Front-end</a></p></td>
+                <td><p><a href='https://hub.docker.com/repository/docker/kleydocker/myhello_project' target='blank'>Front-end</a></p></td>
+              </tr>
+              <tr>
+                <td><p><a href='https://github.com/kleyton-ohare/DevOps_Project_backend' target='blank'>Back-end</a></p></td>
+                <td><p><a href='https://hub.docker.com/repository/docker/kleydocker/myhello_project_backend' target='blank'>Back-end</a></p></td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
+      </body>
     </div>
   );
 }
