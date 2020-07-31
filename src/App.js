@@ -90,6 +90,7 @@ function App() {
               </tr>
             </tbody>
           </Table>
+          <p>Developed by Kleyton O'Hare</p>
         </div>
       </body>
     </div>
